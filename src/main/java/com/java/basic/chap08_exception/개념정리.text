@@ -1,0 +1,31 @@
+* 예외 와 에러
+ - 예외 : 프로그램 코드에 의해 수습 가능한 다소 미약한 오류
+ - 오류 : 프로그램 코드에 의해 수습 불가능한 심각한 오류 (OutOfMemoryError, StackOverflowError..)
+
+ * Java에서는 예외와 에러를 클래스로 정의해 놓았다.
+   Object -> Throwable -> Exception -> IO Exception
+                                    -> ClassNotFoundException
+                                    -> ...
+                                    -> RuntimeException
+                                       -> NullPointException
+                                       -> IndexOutOfBoundException
+                                       -> ...
+                       -> Error     -> OutOfMemoryError
+                                    -> ...
+
+* Exception은 RuntimeException 의 자손과 그 외에 그룹으로 나눌 수 있다. (2개 그룹)
+  Exception class 들은 외부의 영향으로 발생 할 수 있는 것들 (파일을 찾을 수 없다던가, IO 문제라던가, 데이터 형식이 잘못된)
+  RuntimeException class 들은 프로그래머 실수로 발생 가능한 것들 (IndexOutOfBound, NullPoint, ClassCast, Arithmetic (0으로 나누기) 등..)
+
+
+* JDK 1.7 부터 Multi catch 블럭을 사용할 수 있다. exception 조건은 "|" 로 연결한다.
+    ex> catch (ExceptionA | ExceptionB e) {}
+    하지만 이 경우 catch 블럭 내에서 어떤 예외가 발생 했는지 알 수 없다.
+    if (e instanceOf ExceptionA) 와 같이 타입 검사 후 형변환을 하여 특정 예외에 대한 기능을 사용할 수 있다.
+    형변환 안하면 Exception class 기능밖에 사용 못함.
+
+
+* RuntimeException 및 그 자손 예외들은 예외처리를 강제하지 않는다.
+  만일 강제 했다면 배열, 참조변수 등이 사용되는 모든 곳에 예외 처리가 강제 됐어야 할 것이다. (IndexOutOfBound, NullPointException 등..)
+  컴파일러가 예외처리를 확인하지 않는 RuntimException 클래스들을 unchecked 예외라 하며
+  예외처리를 확인하는 Exception 클래스 들은 checked 예외 라고 부른다.
