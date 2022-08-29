@@ -1,4 +1,4 @@
-package com.java.basic.chap09_javalang_utils;
+package com.java.basic.chap09_javalang_utils.clone;
 
 
 public class CloneEx1 {
@@ -14,7 +14,7 @@ public class CloneEx1 {
 class Point implements Cloneable {
     int x,y;
 
-    Point (int x, int y) {
+    Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
