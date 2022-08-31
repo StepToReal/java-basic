@@ -25,7 +25,7 @@ public class StringTokenizerEx4 {
             String token = st.nextToken();
             int check = NUMBER.indexOf(token);
 
-            if (check == -1) {
+            if (check == -1) { //단위 이면
                 if ("만억조".indexOf(token) == -1) {
                     tempResult += (num != 0 ? num : 1) * UNIT_NUM[UNIT.indexOf(token)];
                 } else {
