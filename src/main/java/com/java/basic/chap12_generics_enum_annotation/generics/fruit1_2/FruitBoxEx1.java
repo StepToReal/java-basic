@@ -13,6 +13,7 @@ public class FruitBoxEx1 {
         Box<Apple> appleBox = new Box<>();
 //        Box<Grape> grapeBox = new Box<Apple>(); //error 타입 불일치
 //        Box<Fruit> fruitBox1 = new Box<Apple>(); // 타입매개변수에서는 상속관계 적용 안됨
+        Box<? extends Fruit> fruitBox1 = new Box<Apple>(); // 와일드 카드를 사용하면 지네릭 타입 매개변수에 다형성 적용 가능
         Box<Toy> toyBox = new Box<>();
         Box<Apple> smallBox = new SmallBox<Apple>(); // 상속관계 클래스에 같은 타입 적용은 가능.
 
